@@ -8,7 +8,10 @@ var listArray = [
     {name:'李丽', src:'./src/img/7.png',feature:'眼光独到',sex:'女',age:'25'},
 
 ];
-// var oDiv = document.getElementsByClassName('filterObject')[0];
+var state = {
+    text:"",
+    sex:"a",
+};
 var Ul = document.getElementsByTagName('ul')[0];
 function renderPage(data){
     var htmlStr = '';
@@ -21,51 +24,14 @@ function renderPage(data){
 renderPage(listArray);
 
 
-function func(){
-    var Input = document.getElementById('input').value;
-    //Input.oninput =function(){return this.value;}
-    console.log(Input);
-    // var str = Input;
-    renderPage(filterText(listArray,Input));
-}
+text = document.getElementById('input').value;
+renderPage(filterText(listArray,text));
 
-function filterText(data,txt){
-    if(txt == null){
-        return data;
-    }else{
-        
-    
-    var newArr = data.filter(function(ele,index,self){
-        if(ele.name.indexOf(txt) != -1)
-        {return true}else{return false};
-    });
-    console.log(newArr);
-    return newArr;
-}
-}
 
 var Span = document.getElementsByClassName('btn');
-var ArrObject = new Array();
 for(let i = 0;i < Span.length;i++){
-    ArrObject.push(Span[i].innerText);
+    sex = Span[i].sex;
     Span[i].onclick = function(){
-        renderPage(sexFilter(ArrObject[i]));
-        console.log(ArrObject[i]);
-        console.log(i);
-
+        renderPage(sexFilter(sex,listArray));
 };
-    
-// console.log(Span[i].innerText);  
-}
-console.log(ArrObject);
-function sexFilter(sex){
-    var newArr = listArray.filter(function(ele,index,self){
-        switch(sex){
-            case "Male" : return ele.sex == '女';break;
-            case "Female" : return ele.sex == '男';break;
-            case "All": return ele;
-        }        
-    });
-    console.log(newArr);
-    return newArr;
 }
