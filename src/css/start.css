@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.wrapper{
+    width: 400px;
+    margin: 100px auto 0;
+    padding:16px ;
+    border: 1px black solid;  
+    border-radius: 4px;  
+    
+}
+/* 筛选条件 */
+.wrapper .filterSearch{
+    margin-top: 16px;
+    height:20px;
+
+}
+.wrapper .filterSearch #input{
+    width: 180px;
+    outline: none;
+    padding-left: 5px;
+
+}
+.wrapper .filterSearch .btn{
+    display: inline-block;
+    height: 16px;
+    line-height: 16px;
+    width: 60px;
+    font-size: 16px;
+    border: 0px solid black;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.wrapper .filterSearch .btn:hover{
+    background-color: #33eeff;
+}
+
+
+/* 筛选结果 */
+.wrapper .filterObject {
+    margin-top: 32px;
+}
+.wrapper .filterObject li{
+    position:relative;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #999;
+      
+}
+.wrapper .filterObject li .desc{
+    padding-left: 52px;
+    
+}
+.wrapper .filterObject li span{
+    display: block;
+}
+.wrapper .filterObject li img{
+    position: absolute;
+    top: 4px;
+    left: 5px;
+}
+.wrapper .filterObject li .desc .name{
+    font-size: medium;
+}
+.wrapper .filterObject li .desc .feature{
+    font-size:xx-small;
+    vertical-align: middle;
+    margin-top: 4px;
+}
+
+
