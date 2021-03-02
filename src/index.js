@@ -25,13 +25,13 @@ renderPage(listArray);
 
 
 text = document.getElementById('input').value;
-renderPage(filterText(listArray,text));
+renderPage(lastFilter(listArray));
 
 
 var Span = document.getElementsByClassName('btn');
 for(let i = 0;i < Span.length;i++){
     sex = Span[i].sex;
     Span[i].onclick = function(){
-        renderPage(sexFilter(sex,listArray));
+        renderPage(lastFilter(listArray));
 };
 }
