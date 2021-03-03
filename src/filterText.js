@@ -1,5 +1,6 @@
-function filterText(txt,data){   
-    if(txt == null){
+function filterText(txt,data){ 
+ 
+    if(!txt){
         return data;
     }
     else{

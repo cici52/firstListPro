@@ -1,6 +1,10 @@
 function filterSex(sex,data){
-    var newArr = data.filter(function(ele,index,self){
-        return ele.sex == sex;      
-    });
-    return newArr;
+    if(sex == 'a'){
+        return data;
+    }else{
+        return data.filter(function(ele,index,self){
+            return ele.sex == sex;      
+        });
+    }
+    
 }

@@ -23,15 +23,19 @@ function renderPage(data){
 }
 renderPage(listArray);
 
-
-text = document.getElementById('input').value;
-renderPage(lastFilter(listArray));
+var getInput = document.getElementById('input');
+getInput.oninput = function (){
+    state.text = getInput.value;
+    console.log(state.text);
+    renderPage(lastFilter(listArray));
+}
 
 
 var Span = document.getElementsByClassName('btn');
-for(let i = 0;i < Span.length;i++){
-    sex = Span[i].sex;
+for(let i = 0;i < Span.length;i++){  
     Span[i].onclick = function(){
+        state.sex = Span[i].getAttribute('sex');
+        console.log(state.sex);
         renderPage(lastFilter(listArray));
 };
 }
