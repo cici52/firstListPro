@@ -36,10 +36,22 @@ getInput.oninput = function (){
     console.log(getInput.value);
 }
 
-
+// 性别的背景色
 var Span = document.getElementsByClassName('btn');
+var initial = Span[2];
+// 
+function changeActive(e){
+    var dom = e.target;
+    console.log(dom);
+    dom.classList.add('btn','active');
+    initial.classList.remove( 'active');
+    initial = dom;
+}
+
+// 事件函数的形参指着调用事件的对象
 for(let i = 0;i < Span.length;i++){  
-    Span[i].onclick = function(){
+    Span[i].onclick = function(e){
+        changeActive(e);
         store.dispatch({type:'sex',text:Span[i].getAttribute('sex')});
         console.log(Span[i].getAttribute('sex'));
 };

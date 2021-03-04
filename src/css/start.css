@@ -34,7 +34,7 @@
     text-align: center;
     cursor: pointer;
 }
-.wrapper .filterSearch .btn:hover{
+.wrapper .filterSearch .active{
     background-color: #33eeff;
 }
 
