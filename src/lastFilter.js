@@ -3,8 +3,7 @@ function combineFilterFunc(obj){
       console.log(arr);
         var lastArr = arr;
         for(var prop in obj){
-          lastArr = obj[prop](state[prop],lastArr);
-          console.log(state[prop]);
+          lastArr = obj[prop](store.getState()[prop],lastArr);
         }
         console.log(lastArr);
         return lastArr;

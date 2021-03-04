@@ -5,8 +5,9 @@ function createStore(initState){
         return state;
     }
     function dispatch(action){
-        state[action.type]=action[text];
+        state[action.type]=action.text;
         list.forEach(function(func,index){func()});
+        console.log(action.text);
     }
     function subscribe(func){
         list.push(func);
@@ -15,5 +16,5 @@ function createStore(initState){
         getState:getState,
         dispatch:dispatch,
         subscribe:subscribe
-    };
+    }
 }

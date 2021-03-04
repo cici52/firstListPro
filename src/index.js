@@ -8,10 +8,11 @@ var listArray = [
     {name:'李丽', src:'./src/img/7.png',feature:'眼光独到',sex:'女',age:'25'},
 
 ];
-var state = {
+var store =createStore({
     text:"",
     sex:"a",
-};
+});
+
 var Ul = document.getElementsByTagName('ul')[0];
 function renderPage(data){
     var htmlStr = '';
@@ -22,20 +23,24 @@ function renderPage(data){
     Ul.innerHTML = htmlStr;
 }
 renderPage(listArray);
-
-var getInput = document.getElementById('input');
-getInput.oninput = function (){
-    state.text = getInput.value;
-    console.log(state.text);
+function update(){
     renderPage(lastFilter(listArray));
+}
+store.subscribe(update);
+var getInput = document.getElementById('input');
+
+
+
+getInput.oninput = function (){
+    store.dispatch({type:"text",text:getInput.value});
+    console.log(getInput.value);
 }
 
 
 var Span = document.getElementsByClassName('btn');
 for(let i = 0;i < Span.length;i++){  
     Span[i].onclick = function(){
-        state.sex = Span[i].getAttribute('sex');
-        console.log(state.sex);
-        renderPage(lastFilter(listArray));
+        store.dispatch({type:'sex',text:Span[i].getAttribute('sex')});
+        console.log(Span[i].getAttribute('sex'));
 };
 }
